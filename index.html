@@ -1,722 +1,754 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Green Network - Protect Earth</title>
+    <title>表情包工坊 - 终极版 V7 (二裁模式)</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        :root {
-            --primary: #2e7d32;
-            --secondary: #4caf50;
-            --accent: #8bc34a;
-            --light: #e8f5e9;
-            --dark: #1b5e20;
-            --text: #333333;
-            --white: #ffffff;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--text);
-            line-height: 1.6;
-        }
-
-        header {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo i {
-            font-size: 2rem;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            color: var(--accent);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2073&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: var(--white);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--accent);
-            color: var(--white);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .btn:hover {
-            background-color: var(--primary);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
-            border-radius: 2px;
-        }
-
-        .section-title p {
-            color: var(--text);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-img {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .about-img:hover img {
-            transform: scale(1.05);
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--dark);
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            padding: 2rem 1rem;
-            background-color: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .stat-item i {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-        .stat-item h3 {
-            font-size: 2.5rem;
-            color: var(--dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .stat-item p {
-            color: var(--text);
-        }
-
-        .initiatives {
-            background-color: var(--white);
-        }
-
-        .initiatives-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .initiative-card {
-            background-color: var(--light);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .initiative-card:hover {
-            transform: translateY(-10px);
-        }
-
-        .initiative-img {
-            height: 200px;
-            overflow: hidden;
-        }
-
-        .initiative-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .initiative-card:hover .initiative-img img {
-            transform: scale(1.1);
-        }
-
-        .initiative-content {
-            padding: 1.5rem;
-        }
-
-        .initiative-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark);
-        }
-
-        .initiative-content p {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta {
-            background: linear-gradient(to right, var(--primary), var(--secondary));
-            color: var(--white);
-            text-align: center;
-            padding: 5rem 0;
-        }
-
-        .cta h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta .btn {
-            background-color: var(--white);
-            color: var(--primary);
-        }
-
-        .cta .btn:hover {
-            background-color: var(--accent);
-            color: var(--white);
-        }
-
-        footer {
-            background-color: var(--dark);
-            color: var(--white);
-            padding: 3rem 0 1rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent);
-        }
-
-        .footer-column p {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-links li a {
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links li a:hover {
-            color: var(--accent);
-            padding-left: 5px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--white);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            background-color: var(--accent);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .mobile-menu {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        @media (max-width: 992px) {
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .stats {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.1rem;
-            }
-            
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary);
-                flex-direction: column;
-                padding: 1rem 0;
-                text-align: center;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-            
-            nav ul.active {
-                display: flex;
-            }
-            
-            nav ul li {
-                margin: 0;
-                padding: 0.8rem 0;
-            }
-            
-            .mobile-menu {
-                display: block;
-            }
-            
-            .initiatives-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Animation for stats counter */
-        .counter {
-            transition: all 0.5s ease;
-        }
-    </style>
-</head>
-<body>
-    <!-- Header -->
-    <header>
-        <div class="container nav-container">
-            <div class="logo">
-                <i class="fas fa-seedling"></i>
-                <span>Green Network</span>
-            </div>
-            <nav>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#initiatives">Initiatives</a></li>
-                    <li><a href="#get-involved">Get Involved</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container hero-content">
-            <h1>Protect Our Planet, Preserve Our Future</h1>
-            <p>Join the global movement to create a sustainable world through conservation, education, and community action.</p>
-            <a href="#get-involved" class="btn">Join Our Network</a>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Green Network</h2>
-                <p>We are a global community dedicated to environmental protection and sustainable development.</p>
-            </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://images.unsplash.com/photo-1507591064344-4c6ce005b128?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Team planting trees">
-                </div>
-                <div class="about-text">
-                    <h3>Our Mission</h3>
-                    <p>Green Network is committed to creating a sustainable future by protecting natural ecosystems, promoting renewable energy, and empowering communities to take environmental action.</p>
-                    <p>Founded in 2010, we've grown from a small grassroots organization to an international network with over 50,000 members across 120 countries.</p>
-                    <p>Our approach combines scientific research, community engagement, and policy advocacy to address the most pressing environmental challenges of our time.</p>
-                    <a href="#" class="btn">Learn More</a>
-                </div>
-            </div>
-            <div class="stats">
-                <div class="stat-item">
-                    <i class="fas fa-tree"></i>
-                    <h3 class="counter" data-target="2500000">0</h3>
-                    <p>Trees Planted</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-users"></i>
-                    <h3 class="counter" data-target="50000">0</h3>
-                    <p>Active Members</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-globe-americas"></i>
-                    <h3 class="counter" data-target="120">0</h3>
-                    <p>Countries Reached</p>
-                </div>
-                <div class="stat-item">
-                    <i class="fas fa-recycle"></i>
-                    <h3 class="counter" data-target="1500">0</h3>
-                    <p>Cleanup Projects</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Initiatives Section -->
-    <section class="initiatives" id="initiatives">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Initiatives</h2>
-                <p>Discover the key programs and projects we're implementing to protect our planet.</p>
-            </div>
-            <div class="initiatives-grid">
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://dialogue.earth/content/uploads/2021/04/lessons-from-the-rush-to-reforest-china-dialogue-2400x1599.jpg" alt="Reforestation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Global Reforestation</h3>
-                        <p>Planting millions of trees worldwide to restore ecosystems, combat climate change, and protect biodiversity.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1621451537084-482c73073a0f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80" alt="Ocean Conservation">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Ocean Conservation</h3>
-                        <p>Protecting marine ecosystems, reducing plastic pollution, and promoting sustainable fishing practices.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="initiative-card">
-                    <div class="initiative-img">
-                        <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80" alt="Renewable Energy">
-                    </div>
-                    <div class="initiative-content">
-                        <h3>Renewable Energy</h3>
-                        <p>Promoting solar, wind, and other clean energy sources to reduce dependence on fossil fuels.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta" id="get-involved">
-        <div class="container">
-            <h2>Join Our Global Movement</h2>
-            <p>Together, we can create a sustainable future for generations to come. Every action counts, no matter how small.</p>
-            <a href="#" class="btn">Become a Member</a>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>Green Network</h3>
-                    <p>We are dedicated to protecting our planet through collaborative action, education, and sustainable solutions.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#initiatives">Initiatives</a></li>
-                        <li><a href="#get-involved">Get Involved</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Our Programs</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Reforestation</a></li>
-                        <li><a href="#">Ocean Cleanup</a></li>
-                        <li><a href="#">Wildlife Protection</a></li>
-                        <li><a href="#">Climate Education</a></li>
-                        <li><a href="#">Sustainable Agriculture</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact Us</h3>
-                    <p><i class="fas fa-map-marker-alt"></i> Copper Creek Drive, New York</p>
-                    <p><i class="fas fa-phone"></i> +1 (312) 171-0771</p>
-                    <p><i class="fas fa-envelope"></i> support@greennetwork.org</p>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Green Network. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.mobile-menu').addEventListener('click', function() {
-            document.querySelector('nav ul').classList.toggle('active');
-        });
-
-        // Counter Animation
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            const speed = 200; // The lower the slower
-            
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                const count = +counter.innerText;
-                
-                const inc = target / speed;
-                
-                if(count < target) {
-                    counter.innerText = Math.ceil(count + inc);
-                    setTimeout(animateCounters, 1);
-                } else {
-                    counter.innerText = target;
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] },
+                    colors: {
+                        gray: { 850: '#1f2937', 900: '#111827', 950: '#0B0F19' },
+                        accent: { DEFAULT: '#00e5ff', dim: 'rgba(0, 229, 255, 0.1)', hover: '#00b8cc' },
+                        warning: { DEFAULT: '#f59e0b', dim: 'rgba(245, 158, 11, 0.1)' }
+                    },
+                    boxShadow: {
+                        'neon': '0 0 5px theme("colors.accent.DEFAULT"), 0 0 20px theme("colors.accent.dim")',
+                        'neon-warning': '0 0 5px theme("colors.warning.DEFAULT"), 0 0 20px theme("colors.warning.dim")',
+                    },
+                    cursor: { 'grab': 'grab', 'grabbing': 'grabbing' }
                 }
-            });
+            }
+        }
+    </script>
+
+    <style>
+        body { background-color: #0B0F19; color: #e2e8f0; overflow: hidden; user-select: none; }
+        ::-webkit-scrollbar { width: 4px; height: 4px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #374151; border-radius: 2px; }
+        ::-webkit-scrollbar-thumb:hover { background: #4b5563; }
+
+        /* Range Slider */
+        input[type=range] { -webkit-appearance: none; width: 100%; background: transparent; height: 20px; cursor: pointer; }
+        input[type=range]:focus { outline: none; }
+        input[type=range]::-webkit-slider-runnable-track { width: 100%; height: 4px; background: #374151; border-radius: 2px; }
+        input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; height: 12px; width: 12px; border-radius: 50%; background: #00e5ff; margin-top: -4px; box-shadow: 0 0 10px rgba(0, 229, 255, 0.5); transition: 0.2s; }
+        input[type=range]:hover::-webkit-slider-thumb { transform: scale(1.2); }
+
+        /* Cyber Checkbox */
+        .cyber-checkbox { appearance: none; background-color: rgba(17, 24, 39, 0.5); width: 1.15em; height: 1.15em; border: 1px solid #4b5563; border-radius: 0.25em; display: grid; place-content: center; cursor: pointer; transition: all 0.2s; }
+        .cyber-checkbox::before { content: ""; width: 0.65em; height: 0.65em; transform: scale(0); transition: 120ms transform ease-in-out; background-color: #00e5ff; box-shadow: inset 1em 1em #00e5ff; clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%); }
+        .cyber-checkbox:checked { border-color: #00e5ff; background-color: rgba(0, 229, 255, 0.1); box-shadow: 0 0 8px rgba(0, 229, 255, 0.3); }
+        .cyber-checkbox:checked::before { transform: scale(1); }
+
+        /* Canvas */
+        #canvas-viewport { overflow: hidden; position: relative; width: 100%; height: 100%; background-image: radial-gradient(#1f2937 1px, transparent 1px); background-size: 20px 20px; }
+        #canvas-content { position: absolute; transform-origin: 0 0; box-shadow: 0 20px 50px rgba(0,0,0,0.5); pointer-events: none; }
+        #editor-image { pointer-events: none; display: block; }
+        #crop-boxes-layer { pointer-events: auto; }
+
+        /* Secondary Mode Styles */
+        body.secondary-mode header { border-bottom-color: #f59e0b; }
+        body.secondary-mode .crop-region-box.active { outline-color: #f59e0b; background: rgba(245, 158, 11, 0.15); box-shadow: 0 0 15px rgba(245, 158, 11, 0.2); }
+        body.secondary-mode .handle { background: #f59e0b; }
+        body.secondary-mode .name-tag { background: #f59e0b; color: #000; }
+        body.secondary-mode input[type=range]::-webkit-slider-thumb { background: #f59e0b; box-shadow: 0 0 10px rgba(245, 158, 11, 0.5); }
+        body.secondary-mode .cyber-checkbox:checked { border-color: #f59e0b; background-color: rgba(245, 158, 11, 0.1); box-shadow: 0 0 8px rgba(245, 158, 11, 0.3); }
+        body.secondary-mode .cyber-checkbox::before { background-color: #f59e0b; box-shadow: inset 1em 1em #f59e0b; }
+
+        /* Box Styling */
+        .crop-region-box { position: absolute; outline: 1px dashed rgba(255, 255, 255, 0.5); background: rgba(0, 229, 255, 0.05); cursor: move; z-index: 10; transition: background 0.1s; }
+        .crop-region-box.active { z-index: 50; outline: 1px solid #00e5ff; background: rgba(0, 229, 255, 0.15); box-shadow: 0 0 15px rgba(0, 229, 255, 0.2); }
+        
+        .handle { position: absolute; width: 8px; height: 8px; background: #00e5ff; border: 1px solid #000; z-index: 60; display: none; }
+        .handle:hover { transform: scale(1.5); background: #fff; }
+        .crop-region-box.active .handle { display: block; }
+        
+        .handle.tl { top: -4px; left: -4px; cursor: nwse-resize; } .handle.tr { top: -4px; right: -4px; cursor: nesw-resize; }
+        .handle.bl { bottom: -4px; left: -4px; cursor: nesw-resize; } .handle.br { bottom: -4px; right: -4px; cursor: nwse-resize; }
+        .handle.t { top: -4px; left: 50%; translate: -50% 0; cursor: ns-resize; } .handle.b { bottom: -4px; left: 50%; translate: -50% 0; cursor: ns-resize; }
+        .handle.l { left: -4px; top: 50%; translate: 0 -50%; cursor: ew-resize; } .handle.r { right: -4px; top: 50%; translate: 0 -50%; cursor: ew-resize; }
+
+        .name-tag { position: absolute; top: -20px; left: 0; background: #00e5ff; color: #000; padding: 2px 6px; border-radius: 2px; font-family: 'JetBrains Mono', monospace; font-size: 10px; font-weight: 700; pointer-events: none; box-shadow: 0 2px 4px rgba(0,0,0,0.5); white-space: nowrap; }
+
+        @keyframes scanline { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+        .scan-effect { position: absolute; inset: 0; background: linear-gradient(to bottom, transparent, rgba(0, 229, 255, 0.2), transparent); animation: scanline 1.5s linear infinite; pointer-events: none; display: none; }
+        .loading .scan-effect { display: block; }
+        
+        body.secondary-mode .scan-effect { background: linear-gradient(to bottom, transparent, rgba(245, 158, 11, 0.2), transparent); }
+
+        .fade-in-up { animation: fadeInUp 0.3s ease-out forwards; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        body.tool-hand #canvas-viewport { cursor: grab; }
+        body.tool-hand #canvas-viewport:active { cursor: grabbing; }
+        body.tool-hand .crop-region-box { pointer-events: none; }
+        #cropper-draw-overlay { position: absolute; inset: 0; cursor: crosshair; z-index: 100; display: none; }
+    </style>
+</head>
+<body class="h-screen flex flex-col font-sans text-sm">
+
+    <!-- Header -->
+    <header class="h-14 bg-gray-900 border-b border-gray-800 flex items-center justify-between px-6 shrink-0 z-30 shadow-lg transition-colors duration-300">
+        <div class="flex items-center gap-3">
+            <div id="app-logo" class="w-8 h-8 rounded bg-gradient-to-br from-indigo-500 to-accent flex items-center justify-center text-black font-bold text-lg shadow-neon transition-all duration-300">
+                <i class="fa-solid fa-crop-simple"></i>
+            </div>
+            <div>
+                <h1 class="font-bold text-lg tracking-tight text-white leading-none">MEME <span id="app-title-accent" class="text-accent font-light">CROPPER</span></h1>
+                <p id="mode-label" class="text-[10px] text-gray-500 font-mono tracking-widest uppercase">Professional V7</p>
+            </div>
+        </div>
+        
+        <!-- View Controls -->
+        <div class="hidden md:flex items-center bg-gray-800/50 border border-gray-700/50 rounded-lg p-1 gap-1 absolute left-1/2 -translate-x-1/2">
+            <button onclick="setTool('select')" id="tool-select" class="w-8 h-8 rounded bg-gray-700 text-accent hover:text-white transition flex items-center justify-center" title="选择/绘制 (V)">
+                <i class="fa-solid fa-mouse-pointer"></i>
+            </button>
+            <button onclick="setTool('hand')" id="tool-hand" class="w-8 h-8 rounded hover:bg-gray-700 text-gray-400 hover:text-white transition flex items-center justify-center" title="抓手/移动 (Space)">
+                <i class="fa-solid fa-hand"></i>
+            </button>
+            <div class="w-px h-4 bg-gray-700 mx-1"></div>
+            <button onclick="adjustZoom(-0.1)" class="w-8 h-8 rounded hover:bg-gray-700 text-gray-400 hover:text-white transition"><i class="fa-solid fa-minus"></i></button>
+            <span id="zoom-level" class="w-12 text-center font-mono text-xs text-gray-300">100%</span>
+            <button onclick="adjustZoom(0.1)" class="w-8 h-8 rounded hover:bg-gray-700 text-gray-400 hover:text-white transition"><i class="fa-solid fa-plus"></i></button>
+            <button onclick="resetView()" class="w-8 h-8 rounded hover:bg-gray-700 text-gray-400 hover:text-white transition" title="复位视图"><i class="fa-solid fa-compress"></i></button>
+        </div>
+
+        <label id="upload-btn" class="group cursor-pointer relative overflow-hidden bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 px-5 py-2 rounded-full transition-all duration-300 hover:text-white hover:border-accent hover:shadow-neon">
+            <span class="relative z-10 flex items-center gap-2 font-medium">
+                <i class="fa-solid fa-plus text-accent"></i> 上传图片
+            </span>
+            <input type="file" id="imageInput" accept="image/*" class="hidden">
+        </label>
+        
+        <button id="exit-secondary-btn" onclick="toggleSecondaryMode(false)" class="hidden group cursor-pointer relative overflow-hidden bg-gray-800 hover:bg-gray-700 border border-gray-700 text-gray-300 px-5 py-2 rounded-full transition-all duration-300 hover:text-white hover:border-warning hover:shadow-neon-warning">
+            <span class="relative z-10 flex items-center gap-2 font-medium">
+                <i class="fa-solid fa-right-from-bracket text-warning"></i> 退出二裁
+            </span>
+        </button>
+    </header>
+
+    <div class="flex-1 flex overflow-hidden">
+        
+        <!-- Main Workspace -->
+        <main class="flex-1 flex flex-col relative bg-gray-950 overflow-hidden">
+            <div id="canvas-viewport" class="flex-1 relative">
+                <div id="placeholder-text" class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none opacity-50">
+                    <i class="fa-solid fa-images text-6xl text-gray-700 mb-4"></i>
+                    <p class="text-gray-500 font-mono text-xs tracking-widest uppercase">Drag Image Here</p>
+                </div>
+                <div id="canvas-content" class="hidden">
+                    <img id="editor-image" src="" draggable="false">
+                    <div id="crop-boxes-layer" class="absolute inset-0"></div>
+                    <div class="scan-effect"></div>
+                </div>
+                <div id="cropper-draw-overlay"></div>
+            </div>
+
+            <!-- Controls -->
+            <div id="controls-panel" class="h-auto min-h-[140px] bg-gray-900 border-t border-gray-800 px-8 py-4 flex gap-8 shrink-0 opacity-50 pointer-events-none transition-all duration-500 z-20 shadow-panel">
+                
+                <!-- Module 1: AI -->
+                <div class="flex flex-col gap-3 w-72">
+                    <div class="flex items-center gap-2 text-accent text-xs font-bold uppercase tracking-wider mb-1 header-text-color">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i> 智能识别
+                    </div>
+                    <button onclick="smartSplit()" id="smart-btn" class="w-full bg-gradient-to-r from-indigo-900 to-gray-800 hover:from-indigo-800 hover:to-gray-700 border border-indigo-500/30 text-indigo-100 h-10 rounded-lg shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95 group relative overflow-hidden">
+                        <span class="relative z-10 font-bold"><i class="fa-solid fa-bolt"></i> 执行识别</span>
+                        <div class="absolute inset-0 bg-indigo-500/10 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+                    </button>
+                    <div class="bg-gray-800/50 rounded-lg p-3 border border-gray-700/50">
+                        <div class="flex justify-between text-[10px] text-gray-400 font-mono mb-2">
+                            <span>阈值(Sensitivity): <span id="val-sensitivity" class="text-accent font-bold">1</span></span>
+                        </div>
+                        <input type="range" id="smart-sensitivity" min="1" max="100" value="1" oninput="updateLabel(this, 'val-sensitivity')">
+                        <div class="flex items-center justify-between mt-3 pt-2 border-t border-gray-700/50">
+                             <label class="flex items-center gap-2 cursor-pointer group">
+                                <input type="checkbox" id="bw-boost" class="cyber-checkbox" checked>
+                                <span class="text-[10px] text-gray-400 group-hover:text-gray-300 transition">灰阶捕网增强</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-px bg-gray-800 my-2"></div>
+
+                <!-- Module 2: Grid -->
+                <div class="flex flex-col gap-3 flex-1 min-w-[300px]">
+                    <div class="flex items-center justify-between text-gray-400 text-xs font-bold uppercase tracking-wider mb-1 header-text-color">
+                        <span><i class="fa-solid fa-border-all mr-1"></i> 网格/微调</span>
+                        <button onclick="clearRegions()" class="text-[10px] hover:text-red-400 transition"><i class="fa-solid fa-trash-can"></i> 清空</button>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-gray-800/50 rounded-lg p-2 border border-gray-700/50 flex flex-col gap-2">
+                            <div class="flex items-center justify-between gap-2">
+                                <div class="flex items-center bg-gray-900 rounded border border-gray-700 px-2 h-8">
+                                    <input type="number" id="grid-rows" value="2" min="1" max="9" class="w-6 bg-transparent text-center text-white focus:outline-none font-mono">
+                                    <span class="text-gray-600 text-xs">x</span>
+                                    <input type="number" id="grid-cols" value="2" min="1" max="9" class="w-6 bg-transparent text-center text-white focus:outline-none font-mono">
+                                </div>
+                                <button onclick="generateGrid()" class="flex-1 bg-gray-700 hover:bg-gray-600 text-white h-8 rounded text-xs font-medium border border-gray-600">生成</button>
+                            </div>
+                            <div class="flex gap-1 justify-center">
+                                <button onclick="nudge(0, -1)" class="w-8 h-6 bg-gray-900 hover:bg-gray-700 rounded text-gray-400 text-[10px]"><i class="fa-solid fa-arrow-up"></i></button>
+                                <button onclick="nudge(0, 1)" class="w-8 h-6 bg-gray-900 hover:bg-gray-700 rounded text-gray-400 text-[10px]"><i class="fa-solid fa-arrow-down"></i></button>
+                                <button onclick="nudge(-1, 0)" class="w-8 h-6 bg-gray-900 hover:bg-gray-700 rounded text-gray-400 text-[10px]"><i class="fa-solid fa-arrow-left"></i></button>
+                                <button onclick="nudge(1, 0)" class="w-8 h-6 bg-gray-900 hover:bg-gray-700 rounded text-gray-400 text-[10px]"><i class="fa-solid fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col justify-center gap-3">
+                            <div>
+                                <div class="flex justify-between text-[10px] text-gray-400 mb-1"><span>间距 (Gap)</span> <span id="val-gap" class="font-mono text-gray-300">0px</span></div>
+                                <input type="range" id="input-gap" min="0" max="60" value="0" oninput="updateLabel(this, 'val-gap', 'px')">
+                            </div>
+                            <div>
+                                <div class="flex justify-between text-[10px] text-gray-400 mb-1"><span>内缩 (Inset)</span> <span id="val-inset" class="font-mono text-gray-300">0px</span></div>
+                                <input type="range" id="input-inset" min="0" max="60" value="0" oninput="updateLabel(this, 'val-inset', 'px')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-px bg-gray-800 my-2"></div>
+
+                <!-- Module 3: Action -->
+                <div class="flex flex-col gap-3 w-40 justify-center">
+                    <button onclick="enableDrawing()" class="w-full bg-gray-800 hover:bg-gray-700 text-gray-300 border border-gray-700 h-9 rounded text-xs flex items-center justify-center gap-2 transition">
+                        <i class="fa-solid fa-pencil"></i> 手绘模式
+                    </button>
+                    <button onclick="cropAll()" id="process-btn" class="w-full h-12 bg-accent hover:bg-accent-hover text-black font-extrabold rounded-lg shadow-neon flex flex-col items-center justify-center transition-transform active:scale-95 disabled:opacity-50 disabled:grayscale disabled:shadow-none">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-scissors"></i> <span id="process-btn-text">执行裁剪</span>
+                        </div>
+                        <span class="text-[9px] opacity-70 font-mono" id="region-count-label">0 REGIONS</span>
+                    </button>
+                </div>
+            </div>
+        </main>
+
+        <!-- Right Sidebar -->
+        <aside class="w-80 bg-gray-900 border-l border-gray-800 flex flex-col shrink-0 z-20 shadow-xl">
+            <div class="h-14 px-4 border-b border-gray-800 flex justify-between items-center shrink-0 bg-gray-900 z-10 relative">
+                <div class="flex items-center gap-2">
+                    <!-- Fixed Toggle Structure -->
+                    <label class="relative inline-block cursor-pointer">
+                        <input type="checkbox" id="secondary-mode-toggle" class="peer sr-only" onchange="toggleSecondaryMode(this.checked)">
+                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-warning"></div>
+                    </label>
+                    <span class="text-xs font-bold text-gray-100 uppercase tracking-wide" id="sidebar-title">二裁模式</span>
+                </div>
+                <span class="bg-gray-800 text-gray-400 text-[10px] px-2 py-0.5 rounded-full font-mono" id="gallery-count">0</span>
+            </div>
+            
+            <!-- Info Banner for Secondary Mode -->
+            <div id="secondary-info" class="hidden bg-warning/10 border-b border-warning/20 p-2">
+                <p class="text-[10px] text-warning text-center">点击列表图片加载到左侧进行精修</p>
+                <button onclick="batchRefine()" class="mt-1 w-full bg-warning/20 hover:bg-warning/30 text-warning border border-warning/40 rounded py-1 text-[10px] font-bold transition">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> 批量智能重裁 (Auto Trim)
+                </button>
+            </div>
+
+            <div id="gallery-list" class="flex-1 overflow-y-auto p-4 space-y-3 custom-scrollbar">
+                <div id="empty-state" class="flex flex-col items-center justify-center h-full text-gray-700 space-y-3">
+                    <div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center">
+                        <i class="fa-solid fa-box-open text-2xl opacity-50"></i>
+                    </div>
+                    <p class="text-xs font-medium">列表空空如也</p>
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-gray-800 bg-gray-900/95 backdrop-blur">
+                <div class="flex gap-2 mb-3">
+                    <button onclick="clearGallery()" class="flex-1 bg-gray-800 hover:bg-red-900/30 text-gray-400 hover:text-red-400 h-8 rounded text-xs border border-gray-700 transition">清空</button>
+                </div>
+                <button onclick="downloadAll()" id="download-btn" class="w-full bg-indigo-600 hover:bg-indigo-500 disabled:bg-gray-800 disabled:text-gray-600 text-white h-10 rounded font-bold shadow-lg transition text-xs flex justify-center items-center gap-2" disabled>
+                    <i class="fa-solid fa-file-zipper"></i> 打包下载 (ZIP)
+                </button>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- Preview Modal -->
+    <div id="preview-modal" class="fixed inset-0 hidden z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm p-8" onclick="closePreview()">
+        <img id="preview-img" class="max-w-full max-h-full rounded-lg shadow-2xl scale-95 transition-transform duration-300 border border-gray-700">
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 bg-gray-900/80 text-white px-4 py-2 rounded-full text-xs border border-gray-700 font-mono">CLICK TO CLOSE</div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+
+    <script>
+        const imgElement = document.getElementById('editor-image');
+        const boxesLayer = document.getElementById('crop-boxes-layer');
+        const canvasContent = document.getElementById('canvas-content');
+        const viewport = document.getElementById('canvas-viewport');
+        
+        let originalImg = null; 
+        let regions = []; 
+        let activeId = null;
+        let processed = []; 
+        
+        // Secondary Mode State
+        let isSecondaryMode = false;
+        let currentEditingId = null; // ID of the item being refined
+
+        let viewState = { scale: 1, x: 0, y: 0 };
+        let isPanning = false;
+        let panStart = { x: 0, y: 0 };
+        let currentTool = 'select';
+
+        let isDrawing = false, drawStart = {x:0, y:0}, tempBox = null;
+        let isDragging = false, isResizing = false, dragStart = {x:0, y:0}, resizeDir = null;
+
+        viewport.addEventListener('dragover', e => { e.preventDefault(); if(!isSecondaryMode) viewport.classList.add('border-accent'); });
+        viewport.addEventListener('dragleave', e => { e.preventDefault(); viewport.classList.remove('border-accent'); });
+        viewport.addEventListener('drop', e => { 
+            e.preventDefault(); viewport.classList.remove('border-accent'); 
+            if(e.dataTransfer.files[0] && !isSecondaryMode) loadImage(e.dataTransfer.files[0]); 
+        });
+        document.getElementById('imageInput').addEventListener('change', e => { if(e.target.files[0]) loadImage(e.target.files[0]); e.target.value = ''; });
+
+        function loadImage(source) {
+            const reader = new FileReader();
+            const handleLoad = (src) => {
+                imgElement.src = src;
+                imgElement.onload = () => {
+                    originalImg = imgElement;
+                    canvasContent.classList.remove('hidden');
+                    document.getElementById('placeholder-text').classList.add('hidden');
+                    document.getElementById('controls-panel').classList.remove('opacity-50', 'pointer-events-none');
+                    clearRegions();
+                    resetView();
+                }
+            };
+
+            if (source instanceof File) {
+                reader.onload = e => handleLoad(e.target.result);
+                reader.readAsDataURL(source);
+            } else if (typeof source === 'string') {
+                // Blob URL
+                handleLoad(source);
+            }
         }
 
-        // Initialize counters when page loads
-        window.addEventListener('load', animateCounters);
+        // --- Toggle Secondary Mode ---
+        function toggleSecondaryMode(active) {
+            isSecondaryMode = active;
+            document.body.classList.toggle('secondary-mode', active);
+            
+            const logo = document.getElementById('app-logo');
+            const titleAccent = document.getElementById('app-title-accent');
+            const modeLabel = document.getElementById('mode-label');
+            const uploadBtn = document.getElementById('upload-btn');
+            const exitBtn = document.getElementById('exit-secondary-btn');
+            const secInfo = document.getElementById('secondary-info');
+            const processBtnText = document.getElementById('process-btn-text');
+            const toggle = document.getElementById('secondary-mode-toggle');
 
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+            // Sync toggle checkbox state if called programmatically
+            toggle.checked = active;
+
+            if(active) {
+                logo.className = "w-8 h-8 rounded bg-gradient-to-br from-orange-500 to-yellow-400 flex items-center justify-center text-black font-bold text-lg shadow-neon-warning transition-all duration-300";
+                titleAccent.classList.replace('text-accent', 'text-warning');
+                titleAccent.innerText = "REFINE";
+                modeLabel.innerText = "Secondary Processing";
                 
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
+                uploadBtn.classList.add('hidden');
+                exitBtn.classList.remove('hidden');
+                secInfo.classList.remove('hidden');
                 
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+                // Change Process Button color via class replacement in logic, but here simple text
+                processBtnText.innerText = "保存精修";
+                
+                // Clear canvas to invite selection
+                clearRegions();
+                imgElement.src = "";
+                canvasContent.classList.add('hidden');
+                document.getElementById('placeholder-text').classList.remove('hidden');
+                document.getElementById('placeholder-text').innerHTML = `<i class="fa-solid fa-arrow-right text-6xl text-warning mb-4"></i><p class="text-gray-500 text-xs">SELECT IMAGE FROM LIST</p>`;
+                
+            } else {
+                // Revert
+                logo.className = "w-8 h-8 rounded bg-gradient-to-br from-indigo-500 to-accent flex items-center justify-center text-black font-bold text-lg shadow-neon transition-all duration-300";
+                titleAccent.classList.replace('text-warning', 'text-accent');
+                titleAccent.innerText = "CROPPER";
+                modeLabel.innerText = "Professional V7";
+                
+                uploadBtn.classList.remove('hidden');
+                exitBtn.classList.add('hidden');
+                secInfo.classList.add('hidden');
+                processBtnText.innerText = "执行裁剪";
+                
+                // Reset canvas
+                canvasContent.classList.add('hidden');
+                document.getElementById('placeholder-text').innerHTML = `<i class="fa-solid fa-images text-6xl text-gray-700 mb-4"></i><p class="text-gray-500 font-mono text-xs tracking-widest uppercase">Drag Image Here</p>`;
+                document.getElementById('placeholder-text').classList.remove('hidden');
+            }
+            
+            currentEditingId = null;
+            renderGallery(); // Re-render to show/hide Load buttons
+        }
+
+        // --- Smart Split V3 (Strict Mode) ---
+        async function smartSplit() {
+            if(!originalImg) return;
+            const btn = document.getElementById('smart-btn');
+            const container = document.getElementById('canvas-content');
+            container.classList.add('loading');
+            btn.disabled = true;
+            btn.innerHTML = `<span class="relative z-10"><i class="fa-solid fa-circle-notch fa-spin"></i> 扫描中...</span>`;
+            await new Promise(r => setTimeout(r, 50));
+
+            const canvas = document.createElement('canvas');
+            canvas.width = imgElement.naturalWidth;
+            canvas.height = imgElement.naturalHeight;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(imgElement, 0, 0);
+            const { width, height } = canvas;
+            const data = ctx.getImageData(0, 0, width, height).data;
+
+            const sensitivity = parseInt(document.getElementById('smart-sensitivity').value);
+            const bwBoost = document.getElementById('bw-boost').checked;
+            
+            // STRICT MODE: If sensitivity is 1, threshold is 1 (basically exact match)
+            const baseThreshold = sensitivity === 1 ? 2 : Math.floor(sensitivity * 0.8) + 5; 
+
+            const isUniform = (indices) => {
+                if(indices.length === 0) return true;
+                let r0 = data[indices[0]], g0 = data[indices[0]+1], b0 = data[indices[0]+2];
+                let currentThreshold = baseThreshold;
+
+                if (bwBoost) {
+                    const maxVal = Math.max(r0, g0, b0);
+                    const minVal = Math.min(r0, g0, b0);
+                    // If strictly grayscale/white/black
+                    if (maxVal - minVal < 15) currentThreshold = Math.max(baseThreshold * 3, 10); 
+                }
+
+                const step = Math.floor(indices.length / 50) + 1; 
+                for(let i=0; i < indices.length; i += step * 4) {
+                    const idx = indices[i];
+                    if(!data[idx]) continue;
+                    const d = Math.abs(data[idx]-r0) + Math.abs(data[idx+1]-g0) + Math.abs(data[idx+2]-b0);
+                    // Sum diff check
+                    if(d > currentThreshold * 3) return false;
+                }
+                return true;
+            };
+
+            let contentRows = [], inContent = false, startY = 0, minContentSize = 10; 
+            for(let y=0; y<height; y+=2) { 
+                let rowIndices = [];
+                for(let x=0; x<width; x+=5) rowIndices.push((y * width + x) * 4);
+                const uniform = isUniform(rowIndices);
+                if(!inContent && !uniform) { inContent = true; startY = y; } 
+                else if(inContent && uniform) { inContent = false; if(y - startY > minContentSize) contentRows.push({start: startY, end: y}); }
+            }
+            if(inContent && height - startY > minContentSize) contentRows.push({start: startY, end: height});
+
+            let contentCols = []; inContent = false; let startX = 0;
+            for(let x=0; x<width; x+=2) {
+                let colIndices = [];
+                for(let y=0; y<height; y+=5) colIndices.push((y * width + x) * 4);
+                const uniform = isUniform(colIndices);
+                if(!inContent && !uniform) { inContent = true; startX = x; } 
+                else if(inContent && uniform) { inContent = false; if(x - startX > minContentSize) contentCols.push({start: startX, end: x}); }
+            }
+            if(inContent && width - startX > minContentSize) contentCols.push({start: startX, end: width});
+
+            clearRegions();
+            if(contentRows.length === 0 || contentCols.length === 0) {
+                createRegion(10, 10, imgElement.offsetWidth-20, imgElement.offsetHeight-20, "Auto_Fail");
+            } else {
+                const ratio = imgElement.offsetWidth / width; 
+                let count = 1;
+                contentRows.forEach(row => {
+                    contentCols.forEach(col => {
+                        // Intersection logic
+                        createRegion(col.start * ratio, row.start * ratio, (col.end - col.start) * ratio, (row.end - row.start) * ratio, `AI_${count++}`);
+                    });
+                });
+            }
+            container.classList.remove('loading');
+            btn.disabled = false;
+            btn.innerHTML = `<span class="relative z-10"><i class="fa-solid fa-bolt"></i> 执行识别</span>`;
+            
+            // For batch processing hook
+            return regions.length > 0;
+        }
+
+        // --- Batch Refine ---
+        async function batchRefine() {
+            if(processed.length === 0) return;
+            
+            // UI Prep
+            const btn = document.querySelector('button[onclick="batchRefine()"]'); // Find the button calling this
+            // Note: The button is in the secondary-info div, usually has specific text.
+            // Let's be safer with selection or just disable current context.
+            // Actually the button definition is: <button onclick="batchRefine()" ...>
+            if(btn) {
+                var oldTxt = btn.innerHTML;
+                btn.disabled = true;
+                btn.innerHTML = `<i class="fa-solid fa-circle-notch fa-spin"></i> 处理中...`;
+            }
+
+            // IMPORTANT: Make image visible for offsetWidth calculations
+            // Backup visibility state
+            const wasHidden = canvasContent.classList.contains('hidden');
+            canvasContent.classList.remove('hidden');
+            // Use absolute positioning off-screen or visibility hidden to avoid flicker
+            const originalVisibility = canvasContent.style.visibility;
+            canvasContent.style.visibility = 'hidden';
+            
+            const newProcessed = [];
+            
+            try {
+                for(let item of processed) {
+                    await new Promise((resolve) => {
+                        imgElement.src = item.url;
+                        imgElement.onload = () => resolve();
+                        imgElement.onerror = () => resolve(); // Skip on error
                     });
                     
-                    document.querySelector('nav ul').classList.remove('active');
+                    // Wait a tick for layout update
+                    await new Promise(r => requestAnimationFrame(r));
+
+                    // Execute Smart Split
+                    // This uses the DOM element's current render size
+                    await smartSplit();
+                    
+                    if(regions.length > 0) {
+                        // Crop found regions
+                        const ratio = imgElement.naturalWidth / imgElement.offsetWidth;
+                        
+                        for(let r of regions) {
+                            const c = document.createElement('canvas');
+                            c.width = Math.max(1, r.w * ratio); 
+                            c.height = Math.max(1, r.h * ratio);
+                            const ctx = c.getContext('2d');
+                            ctx.drawImage(imgElement, 
+                                r.x * ratio, r.y * ratio, r.w * ratio, r.h * ratio, 
+                                0, 0, c.width, c.height
+                            );
+                            
+                            await new Promise(resolve => {
+                                c.toBlob(blob => {
+                                    if(blob) {
+                                        newProcessed.push({ 
+                                            id: Date.now() + Math.random(), 
+                                            blob, 
+                                            name: item.name, 
+                                            url: URL.createObjectURL(blob), 
+                                            size: (blob.size/1024).toFixed(1) 
+                                        });
+                                    }
+                                    resolve();
+                                });
+                            });
+                        }
+                    } else {
+                        // No crop found, keep original
+                        newProcessed.push(item);
+                    }
                 }
+                
+                // Update list
+                processed = newProcessed;
+                renderGallery();
+
+            } catch (e) {
+                console.error("Batch refine error:", e);
+                alert("批量处理出错，请重试");
+            } finally {
+                // Restore UI State
+                imgElement.src = "";
+                canvasContent.style.visibility = originalVisibility;
+                if(wasHidden) canvasContent.classList.add('hidden');
+                
+                // Restore regions layer
+                clearRegions();
+                
+                // Restore placeholder
+                document.getElementById('placeholder-text').classList.remove('hidden'); // Assuming we are in secondary mode
+                
+                if(btn) {
+                    btn.disabled = false;
+                    btn.innerHTML = oldTxt;
+                }
+            }
+        }
+
+        // --- Standard Ops ---
+        function updateLabel(input, labelId) { document.getElementById(labelId).innerText = input.value; }
+        function clearRegions() { regions.forEach(r => r.el.remove()); regions = []; activeId = null; updateUI(); }
+        
+        function generateGrid() {
+            if(!originalImg) return;
+            clearRegions();
+            const rows = parseInt(document.getElementById('grid-rows').value), cols = parseInt(document.getElementById('grid-cols').value);
+            const gap = parseInt(document.getElementById('input-gap').value), inset = parseInt(document.getElementById('input-inset').value);
+            const dispW = imgElement.offsetWidth, dispH = imgElement.offsetHeight;
+            const cellW = (dispW - (2*inset) - ((cols-1)*gap)) / cols, cellH = (dispH - (2*inset) - ((rows-1)*gap)) / rows;
+            if(cellW < 10 || cellH < 10) return;
+            for(let r=0; r<rows; r++) for(let c=0; c<cols; c++) createRegion(inset + c*(cellW+gap), inset + r*(cellH+gap), cellW, cellH, `P${regions.length+1}`);
+        }
+
+        function createRegion(x, y, w, h, name) {
+            const id = Date.now() + Math.random();
+            const el = document.createElement('div');
+            el.className = 'crop-region-box'; 
+            el.innerHTML = `<div class="name-tag">${name}</div><div class="handle tl" data-dir="tl"></div><div class="handle t" data-dir="t"></div><div class="handle tr" data-dir="tr"></div><div class="handle r" data-dir="r"></div><div class="handle br" data-dir="br"></div><div class="handle b" data-dir="b"></div><div class="handle bl" data-dir="bl"></div><div class="handle l" data-dir="l"></div>`;
+            updateBoxCSS(el, x, y, w, h);
+            el.addEventListener('mousedown', e => {
+                if (currentTool === 'hand') return; e.preventDefault(); e.stopPropagation(); setActive(id);
+                const contentRect = canvasContent.getBoundingClientRect();
+                const imx = (e.clientX - contentRect.left)/viewState.scale, imy = (e.clientY - contentRect.top)/viewState.scale;
+                if(e.target.classList.contains('handle')) { isResizing = true; resizeDir = e.target.dataset.dir; } 
+                else { isDragging = true; dragStart = { x: imx - x, y: imy - y }; }
             });
+            boxesLayer.appendChild(el); regions.push({ id, x, y, w, h, name, el }); setActive(id); updateUI(); return id;
+        }
+        function updateBoxCSS(el, x, y, w, h) { el.style.left = x+'px'; el.style.top = y+'px'; el.style.width = w+'px'; el.style.height = h+'px'; }
+        function setActive(id) { activeId = id; regions.forEach(r => { if(r.id === id) { r.el.classList.add('active'); r.el.style.zIndex = 100; } else { r.el.classList.remove('active'); r.el.style.zIndex = 10; } }); updateUI(); }
+
+        // --- Mouse/View Logic ---
+        function getInternalMouse(e) { const r = canvasContent.getBoundingClientRect(); return { x: (e.clientX - r.left)/viewState.scale, y: (e.clientY - r.top)/viewState.scale }; }
+        window.addEventListener('mousemove', e => {
+            if (isPanning) { viewState.x = e.clientX - panStart.x; viewState.y = e.clientY - panStart.y; updateTransform(); return; }
+            const m = getInternalMouse(e);
+            if(isDragging && activeId) { const r = regions.find(x => x.id === activeId); r.x = m.x - dragStart.x; r.y = m.y - dragStart.y; updateBoxCSS(r.el, r.x, r.y, r.w, r.h); } 
+            else if(isResizing && activeId) {
+                const r = regions.find(x => x.id === activeId); let {x,y,w,h} = r;
+                if(resizeDir.includes('l')) { let d=x+w; x=Math.min(m.x, x+w-10); w=d-x; }
+                if(resizeDir.includes('r')) { w=Math.max(10, m.x-x); }
+                if(resizeDir.includes('t')) { let d=y+h; y=Math.min(m.y, y+h-10); h=d-y; }
+                if(resizeDir.includes('b')) { h=Math.max(10, m.y-y); }
+                r.x=x; r.y=y; r.w=w; r.h=h; updateBoxCSS(r.el, x, y, w, h);
+            } else if(isDrawing && tempBox) {
+                let w = m.x - drawStart.x, h = m.y - drawStart.y;
+                tempBox.style.left = (w<0?m.x:drawStart.x)+'px'; tempBox.style.top = (h<0?m.y:drawStart.y)+'px'; tempBox.style.width = Math.abs(w)+'px'; tempBox.style.height = Math.abs(h)+'px';
+            }
         });
+        window.addEventListener('mouseup', () => {
+            if(isDrawing && tempBox) {
+                let w=parseFloat(tempBox.style.width), h=parseFloat(tempBox.style.height), x=parseFloat(tempBox.style.left), y=parseFloat(tempBox.style.top);
+                tempBox.remove(); tempBox = null; isDrawing = false; document.getElementById('cropper-draw-overlay').style.display = 'none';
+                if(w>10 && h>10) createRegion(x,y,w,h, `Draw_${regions.length+1}`);
+            }
+            isDragging = false; isResizing = false; isPanning = false; viewport.style.cursor = currentTool === 'hand' ? 'grab' : 'default';
+        });
+
+        function enableDrawing() { if(currentTool === 'hand') setTool('select'); setActive(null); document.getElementById('cropper-draw-overlay').style.display = 'block'; }
+        document.getElementById('cropper-draw-overlay').addEventListener('mousedown', e => { if(e.button !== 0) return; isDrawing = true; const m = getInternalMouse(e); drawStart = { x: m.x, y: m.y }; tempBox = document.createElement('div'); tempBox.className = 'crop-region-box inactive pointer-events-none'; tempBox.style.border = '1px dashed #00e5ff'; boxesLayer.appendChild(tempBox); });
+
+        // Viewport Controls
+        function updateTransform() { canvasContent.style.transform = `translate(${viewState.x}px, ${viewState.y}px) scale(${viewState.scale})`; document.getElementById('zoom-level').innerText = Math.round(viewState.scale*100) + '%'; }
+        function resetView() { if(!originalImg) return; const s = Math.min((viewport.offsetWidth-40)/imgElement.naturalWidth, (viewport.offsetHeight-40)/imgElement.naturalHeight, 1); viewState = {scale:s, x:(viewport.offsetWidth-imgElement.naturalWidth*s)/2, y:(viewport.offsetHeight-imgElement.naturalHeight*s)/2}; updateTransform(); }
+        function adjustZoom(d) { const ns = Math.max(0.1, Math.min(5, viewState.scale+d)); const cx = viewport.offsetWidth/2, cy = viewport.offsetHeight/2; const wx = (cx-viewState.x)/viewState.scale, wy = (cy-viewState.y)/viewState.scale; viewState.scale=ns; viewState.x=cx-wx*ns; viewState.y=cy-wy*ns; updateTransform(); }
+        viewport.addEventListener('wheel', e => { e.preventDefault(); adjustZoom(e.deltaY>0?-0.1:0.1); }, {passive:false});
+        viewport.addEventListener('mousedown', e => { if(e.button===1 || currentTool==='hand' || e.shiftKey) { e.preventDefault(); isPanning=true; panStart={x:e.clientX-viewState.x, y:e.clientY-viewState.y}; viewport.style.cursor='grabbing'; }});
+        function setTool(t) { currentTool=t; document.body.classList.toggle('tool-hand', t==='hand'); document.getElementById('tool-select').className = `w-8 h-8 rounded transition flex items-center justify-center ${t==='select'?'bg-gray-700 text-accent':'text-gray-400'}`; document.getElementById('tool-hand').className = `w-8 h-8 rounded transition flex items-center justify-center ${t==='hand'?'bg-gray-700 text-accent':'text-gray-400'}`; if(t==='select') document.getElementById('cropper-draw-overlay').style.display='none'; }
+        window.addEventListener('keydown', e => { if(e.code==='Space' && !e.repeat && document.activeElement.tagName!=='INPUT') setTool('hand'); });
+        window.addEventListener('keyup', e => { if(e.code==='Space' && document.activeElement.tagName!=='INPUT') setTool('select'); });
+
+        // --- Process & Gallery ---
+        function cropAll() {
+            if(!originalImg || regions.length === 0) return;
+            const ratio = imgElement.naturalWidth / imgElement.offsetWidth;
+            
+            // Secondary Mode: Remove the item being edited from list first? Or just add new ones?
+            // Decision: If in secondary mode and editing a specific ID, remove the old one, add new ones.
+            if(isSecondaryMode && currentEditingId) {
+                processed = processed.filter(p => p.id !== currentEditingId);
+                currentEditingId = null;
+            }
+
+            regions.forEach(r => {
+                const c = document.createElement('canvas');
+                c.width = r.w * ratio; c.height = r.h * ratio;
+                c.getContext('2d').drawImage(imgElement, r.x*ratio, r.y*ratio, r.w*ratio, r.h*ratio, 0, 0, c.width, c.height);
+                c.toBlob(blob => {
+                    processed.push({ id: Date.now()+Math.random(), blob, name: r.name, url: URL.createObjectURL(blob), size: (blob.size/1024).toFixed(1) });
+                    renderGallery();
+                });
+            });
+            
+            // If in secondary mode, maybe clear canvas after save?
+            if(isSecondaryMode) {
+                clearRegions();
+                imgElement.src = "";
+                canvasContent.classList.add('hidden');
+                document.getElementById('placeholder-text').classList.remove('hidden');
+            }
+        }
+
+        function loadGalleryItem(id) {
+            if(!isSecondaryMode) return;
+            const item = processed.find(p => p.id === id);
+            if(!item) return;
+            
+            currentEditingId = id;
+            loadImage(item.url);
+        }
+
+        function renderGallery() {
+            const list = document.getElementById('gallery-list');
+            document.getElementById('gallery-count').innerText = processed.length;
+            if(processed.length === 0) { list.innerHTML = `<div id="empty-state" class="flex flex-col items-center justify-center h-full text-gray-700 space-y-3"><div class="w-16 h-16 rounded-full bg-gray-800 flex items-center justify-center"><i class="fa-solid fa-box-open text-2xl opacity-50"></i></div><p class="text-xs font-medium">列表空空如也</p></div>`; document.getElementById('download-btn').disabled=true; return; }
+            
+            list.innerHTML = '';
+            [...processed].reverse().forEach(item => {
+                const isEditing = isSecondaryMode && item.id === currentEditingId;
+                const activeClass = isEditing ? "border-warning ring-1 ring-warning bg-warning/10" : "border-gray-700 hover:border-gray-500";
+                
+                const row = document.createElement('div');
+                row.className = `fade-in-up bg-gray-800 p-2 rounded-lg flex items-center gap-3 border transition group ${activeClass}`;
+                
+                // Click to load logic
+                const clickAction = isSecondaryMode ? `onclick="loadGalleryItem(${item.id})"` : `onclick="openPreview('${item.url}')"`;
+                const cursorClass = isSecondaryMode ? "cursor-pointer" : "cursor-zoom-in";
+                const icon = isSecondaryMode ? `<i class="fa-solid fa-pen-to-square text-warning opacity-0 group-hover:opacity-100 absolute inset-0 flex items-center justify-center bg-black/50 transition"></i>` : "";
+
+                row.innerHTML = `
+                    <div class="w-12 h-12 bg-gray-900 rounded border border-gray-700 overflow-hidden ${cursorClass} shrink-0 relative" ${clickAction}>
+                        <img src="${item.url}" class="w-full h-full object-contain">
+                        ${icon}
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <input class="bg-transparent text-gray-200 text-xs font-bold w-full focus:bg-gray-900 focus:text-accent rounded px-1 outline-none transition" value="${item.name}" onchange="updateName(${item.id}, this.value)">
+                        <div class="text-[10px] text-gray-500 font-mono mt-0.5">${item.size} KB</div>
+                    </div>
+                    <div class="flex gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
+                         <button onclick="downloadOne(${item.id})" class="w-6 h-6 rounded hover:bg-gray-700 text-gray-400 hover:text-white transition"><i class="fa-solid fa-download text-xs"></i></button>
+                         <button onclick="deleteOne(${item.id})" class="w-6 h-6 rounded hover:bg-gray-700 text-gray-500 hover:text-red-400 transition"><i class="fa-solid fa-xmark text-xs"></i></button>
+                    </div>
+                `;
+                list.appendChild(row);
+            });
+            document.getElementById('download-btn').disabled = false;
+        }
+
+        // Utils
+        function openPreview(url) { document.getElementById('preview-img').src = url; document.getElementById('preview-modal').classList.remove('hidden'); setTimeout(() => document.getElementById('preview-img').classList.remove('scale-95'), 10); }
+        function closePreview() { document.getElementById('preview-img').classList.add('scale-95'); setTimeout(() => document.getElementById('preview-modal').classList.add('hidden'), 200); }
+        function nudge(dx, dy) { if(!activeId) return; const r = regions.find(x => x.id === activeId); r.x += dx; r.y += dy; updateBoxCSS(r.el, r.x, r.y, r.w, r.h); }
+        window.updateName = (id, val) => processed.find(x=>x.id===id).name = val;
+        window.downloadOne = (id) => { const i = processed.find(x=>x.id===id); saveAs(i.blob, i.name+".png"); }
+        window.deleteOne = (id) => { processed = processed.filter(x=>x.id!==id); if(currentEditingId===id) { currentEditingId=null; imgElement.src=""; canvasContent.classList.add('hidden'); document.getElementById('placeholder-text').classList.remove('hidden'); } renderGallery(); }
+        window.clearGallery = () => { if(confirm("清空列表?")) { processed=[]; renderGallery(); } }
+        window.downloadAll = () => { const zip = new JSZip(); const f = zip.folder("memes"); processed.forEach(p => { let n=p.name, c=0; while(f.file(n+".png")) n=`${p.name}_${++c}`; f.file(n+".png", p.blob); }); zip.generateAsync({type:"blob"}).then(c => saveAs(c, "memes.zip")); }
+        function updateUI() { const count = regions.length; document.getElementById('region-count-label').innerText = count + (count === 1 ? ' REGION' : ' REGIONS'); document.getElementById('process-btn').disabled = count === 0; }
     </script>
 </body>
-
 </html>
